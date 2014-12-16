@@ -1,7 +1,7 @@
 libmemstream
 ============
 
-*libmemstream* is a port of the **dynamic memory buffer stream functions** (namely `fmemopen`, `open_memstream`, `open_wmemstream`) to OS X.
+*libmemstream* is an implementation of the [POSIX][POSIX Standard] **dynamic memory buffer stream functions** (namely [`fmemopen`][POSIX fmemopen], [`open_memstream`][POSIX open_memstream], [`open_wmemstream`][POSIX open_wmemstream]) for OS X.
 
 The source code is based on the [source][FreeBSD source] of [FreeBSD 11][FreeBSD].
 
@@ -22,5 +22,9 @@ Usage
 
 The manual page for the API is `memstream(3)`.
 
+[POSIX Standard]: http://pubs.opengroup.org/onlinepubs/9699919799/
+[POSIX fmemopen]: http://pubs.opengroup.org/onlinepubs/9699919799/functions/fmemopen.html
+[POSIX open_memstream]: http://pubs.opengroup.org/onlinepubs/9699919799/functions/open_memstream.html
+[POSIX open_wmemstream]: http://pubs.opengroup.org/onlinepubs/9699919799/functions/open_memstream.html
 [FreeBSD]: https://www.freebsd.org/relnotes/CURRENT/relnotes/article.html
 [FreeBSD source]: https://svnweb.freebsd.org/base/head/
