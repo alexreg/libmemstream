@@ -5,11 +5,12 @@ LN="ln -sf -v"
 
 [[ -n "$INSTALL_PREFIX" ]] || INSTALL_PREFIX="/usr/local"
 
+BUILD_DIR="output"
 MAN_PREFIX="$INSTALL_PREFIX/share/man"
 
-$INSTALL -m 644 lib/libmemstream.a "$INSTALL_PREFIX/lib"
-$INSTALL -m 644 src/memstream.h "$INSTALL_PREFIX/include"
-$INSTALL -m 644 man/memstream.3 "$MAN_PREFIX/man3"
+$INSTALL -m 644 "$BUILD_DIR/lib/libmemstream.a" "$INSTALL_PREFIX/lib"
+$INSTALL -m 644 "src/memstream.h" "$INSTALL_PREFIX/include"
+$INSTALL -m 644 "man/memstream.3" "$MAN_PREFIX/man3"
 for ln_dest in {fmemopen,open_memstream,open_wmemstream}.3 ; do
     $LN "$MAN_PREFIX/man3/memstream.3" "$MAN_PREFIX/man3/$ln_dest"
 done

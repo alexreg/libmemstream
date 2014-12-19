@@ -6,11 +6,14 @@ AR="ar -rs"
 export LIBRARY_PATH="/opt/local/lib:$LIBRARY_PATH"
 export C_INCLUDE_PATH="/opt/local/include:$C_INCLUDE_PATH"
 
-[[ -d obj/ ]] || mkdir obj/
-[[ -d lib/ ]] || mkdir lib/
+BUILD_DIR="output"
 
-$CC -o obj/flags.o -c src/flags.c
-$CC -o obj/fmemopen.o -c src/fmemopen.c
-$CC -o obj/open_memstream.o -c src/open_memstream.c
-$CC -o obj/open_wmemstream.o -c src/open_wmemstream.c
-$AR -c lib/libmemstream.a obj/*.o
+[[ -d "$BUILD_DIR/" ]] || mkdir "$BUILD_DIR/"
+[[ -d "$BUILD_DIR/obj/" ]] || mkdir "$BUILD_DIR/obj/"
+[[ -d "$BUILD_DIR/lib/" ]] || mkdir "$BUILD_DIR/lib/"
+
+$CC -o "$BUILD_DIR/obj/flags.o" -c "src/flags.c"
+$CC -o "$BUILD_DIR/obj/fmemopen.o" -c "src/fmemopen.c"
+$CC -o "$BUILD_DIR/obj/open_memstream.o" -c "src/open_memstream.c"
+$CC -o "$BUILD_DIR/obj/open_wmemstream.o" -c "src/open_wmemstream.c"
+$AR -c "$BUILD_DIR/lib/libmemstream.a" "$BUILD_DIR/obj/"*.o
